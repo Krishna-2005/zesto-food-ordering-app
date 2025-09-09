@@ -1,0 +1,68 @@
+{
+    "info": {
+        "id": "470708",
+        "name": "Big Bowl",
+        "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/6/22/deff0d02-ca1d-4ef9-9d62-b0cbeabf33d3_470708.JPG",
+        "locality": "Near Gangai Nagar",
+        "areaName": "Velachery",
+        "costForTwo": "₹250 for two",
+        "cuisines": [
+            "Chinese",
+            "Tibetan",
+            "Desserts"
+        ],
+        "avgRating": 4.3,
+        "parentId": "434792",
+        "avgRatingString": "4.3",
+        "totalRatingsString": "3.0K+",
+        "sla": {
+            "deliveryTime": 37,
+            "lastMileTravel": 1.6,
+            "serviceability": "SERVICEABLE",
+            "slaString": "35-40 mins",
+            "lastMileTravelString": "1.6 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2025-09-06 02:00:00",
+            "opened": true
+        },
+        "badges": {},
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {},
+                "textBased": {},
+                "textExtendedBadges": {}
+            }
+        },
+        "aggregatedDiscountInfoV3": {
+            "header": "ITEMS",
+            "subHeader": "AT ₹129"
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {},
+        "externalRatings": {
+            "aggregatedRating": {
+                "rating": "--"
+            }
+        },
+        "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+    },
+    "analytics": {
+        "context": "seo-data-bfe72f4f-50a6-4ecb-ab07-33fc5747f0e5"
+    },
+    "cta": {
+        "link": "https://www.swiggy.com/city/chennai/big-bowl-near-gangai-nagar-velachery-rest470708",
+        "type": "WEBLINK"
+    }
+}
