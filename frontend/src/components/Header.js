@@ -13,23 +13,61 @@ const Header = () => {
   //subscribing to the store using selector
   const cartItems = useSelector((store) => store.cart.items);
 
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div className="flex justify-between items-center px-8 py-5 shadow-md bg-orange-600">
+    <div className="shadow-md bg-orange-600 px-4 sm:px-8 py-4 flex flex-col sm:flex-row items-center justify-between">
       {/* Logo */}
-      <div className="flex items-center">
-        <img
-          className="h-16 w-16 rounded-xl" // increased size and slightly rounded corners
-          src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthvnext.bing.com%2Fth%2Fid%2FOIP.Q4uNq1Q_3_ooXJn-NSDwCAHaHa%3Fr%3D0%26cb%3Ducfimgc2%26pid%3DApi&f=1&ipt=a01b632e1825aef7f109c2990c097ec1b67743fa01093153e1b232da8d79e97a"
-          alt="App Logo"
-        />
-        <Link to="/">
-          <h1 className="ml-3 text-3xl font-bold font-roboto text-white">Zesto</h1>
-        </Link>
+      <div className="flex items-center w-full sm:w-auto justify-between">
+        <div className="flex items-center">
+          <img
+            className="h-16 w-16 rounded-xl"
+            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthvnext.bing.com%2Fth%2Fid%2FOIP.Q4uNq1Q_3_ooXJn-NSDwCAHaHa%3Fr%3D0%26cb%3Ducfimgc2%26pid%3DApi&f=1&ipt=a01b632e1825aef7f109c2990c097ec1b67743fa01093153e1b232da8d79e97a"
+            alt="App Logo"
+          />
+          <Link to="/">
+            <h1 className="ml-3 text-3xl font-bold font-roboto text-white">Zesto</h1>
+          </Link>
+        </div>
+
+        {/* Hamburger Menu Button */}
+        <button
+          className="sm:hidden text-white focus:outline-none"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-8 w-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            {menuOpen ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            )}
+          </svg>
+        </button>
       </div>
 
       {/* Navigation */}
-      <div className="ml-auto">
-        <ul className="flex items-center space-x-6 font-medium text-white">
+      <div
+        className={`${
+          menuOpen ? "flex" : "hidden"
+        } flex-col sm:flex-row sm:flex w-full sm:w-auto mt-4 sm:mt-0 items-center`}
+      >
+        <ul className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-6 font-medium text-white w-full sm:w-auto">
           {/* <li>
             Status: {onlineStatus ? "🟢" : "🔴"}  
           </li> */}

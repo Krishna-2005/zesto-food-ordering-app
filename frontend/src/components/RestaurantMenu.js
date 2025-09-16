@@ -11,6 +11,8 @@ const RestaurantMenu = () => {
   const resInfo = useRestaurantMenu(resId);
   const [showIndex, setShowIndex] = useState(0);
 
+  console.log(resInfo);
+
   if (resInfo === null) {
     return <ShimmerAccordion />;
   }
