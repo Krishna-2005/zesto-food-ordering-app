@@ -57,11 +57,9 @@ app.get("/api/menu/:resId", async (req, res) => {
   }
 });
 
-// ✅ Catch-all must be LAST
-// Catch-all for React Router
-app.get("/:any(*)", (req, res) => {
+// ✅ Catch-all for React SPA (regex version, compatible with all Express versions)
+app.get(/^\/.*$/, (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
 });
-
 
 app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
