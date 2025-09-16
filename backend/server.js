@@ -58,8 +58,10 @@ app.get("/api/menu/:resId", async (req, res) => {
 });
 
 // ✅ Catch-all must be LAST
-app.get("*", (req, res) => {
+// Catch-all for React Router
+app.get("/:any(*)", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
 });
+
 
 app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
