@@ -6,14 +6,12 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(express.static(path.join(__dirname, "../frontend/build")));
-
 app.use(cors());
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
-});
+// ✅ Serve frontend build
+app.use(express.static(path.join(__dirname, "../frontend/build")));
 
+// ✅ API route: restaurant list
 app.get("/api/restaurants", async (req, res) => {
   try {
     const response = await fetch(
@@ -22,7 +20,7 @@ app.get("/api/restaurants", async (req, res) => {
         headers: {
           "User-Agent":
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
-          "Accept": "application/json",
+          Accept: "application/json",
         },
       }
     );
@@ -38,7 +36,7 @@ app.get("/api/restaurants", async (req, res) => {
   }
 });
 
-// ✅ Add this below your other routes
+// ✅ API route: menu by restaurant
 app.get("/api/menu/:resId", async (req, res) => {
   const { resId } = req.params;
   const MENU_API = `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9947418&lng=80.2128941&restaurantId=${resId}`;
@@ -52,12 +50,16 @@ app.get("/api/menu/:resId", async (req, res) => {
       },
     });
 
-    res.json(response.data); // send Swiggy data to frontend
+    res.json(response.data);
   } catch (error) {
     console.error("Error fetching menu:", error.message);
     res.status(500).json({ error: "Failed to fetch menu data" });
   }
 });
 
+// ✅ Catch-all must be LAST
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
+});
 
 app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
