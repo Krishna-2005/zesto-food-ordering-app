@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import CartItem from "./CartItem";
-import { clearCart } from "../utils/cartSlice";
-import { CDN_URL } from "../utils/constants";
+import { clearCart } from "../utils/cartSlice.js";
+import { CDN_URL } from "../utils/constants.js";
 import { useState } from "react";
 
 const Cart = () => {

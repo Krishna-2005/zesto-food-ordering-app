@@ -7,7 +7,7 @@ const useRestaurantMenu = (resId) => {
 useEffect(() => {
   const fetchData = async () => {
     try {
-      const data = await fetch(`http://localhost:5000/api/menu/${resId}`);
+      const data = await fetch(`https://zesto-food-ordering-app.onrender.com/api/menu/${resId}`);
       const json = await data.json();
       setResInfo(json.data);
     } catch (err) {
