@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 
 // ✅ Serve frontend build
-app.use(express.static(path.join(__dirname, "../frontend/build")));
+app.use(express.static(path.join(__dirname, "../frontend")));
 
 // ✅ API route: restaurant list
 app.get("/api/restaurants", async (req, res) => {
@@ -59,7 +59,7 @@ app.get("/api/menu/:resId", async (req, res) => {
 
 // ✅ Catch-all for React SPA (regex version, compatible with all Express versions)
 app.get(/^\/.*$/, (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
+  res.sendFile(path.join(__dirname, "../frontend/index.html"));
 });
 
 app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
